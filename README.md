@@ -1,9 +1,9 @@
-# 🚚 Supply Chain Delay Analysis
+#  Supply Chain Delay Analysis
 ### End-to-End Data Analytics Project | Olist Brazil E-Commerce Dataset
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This project analyzes delivery delays in a Brazilian e-commerce supply chain using the **Olist dataset from Kaggle**. The goal is to identify *why* deliveries get delayed, *where* the problem is worst, and *how much* it costs the business — using a full analytics stack from raw data to interactive dashboard.
 
@@ -12,7 +12,7 @@ This project analyzes delivery delays in a Brazilian e-commerce supply chain usi
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Tool | Purpose |
 |---|---|
@@ -23,7 +23,7 @@ This project analyzes delivery delays in a Brazilian e-commerce supply chain usi
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 supply-chain-delay-analysis/
@@ -54,7 +54,7 @@ supply-chain-delay-analysis/
 
 ---
 
-## 🔄 Project Pipeline
+##  Project Pipeline
 
 ```
 Raw CSV Files (5 files)
@@ -74,7 +74,7 @@ Raw CSV Files (5 files)
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 **Source:** [Olist Brazilian E-Commerce Dataset — Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
@@ -92,7 +92,7 @@ Raw CSV Files (5 files)
 
 ---
 
-## 🧹 Data Cleaning & Feature Engineering
+##  Data Cleaning & Feature Engineering
 
 Only **delivered** orders were kept — cancelled, shipped, or processing orders cannot have a delay calculated without an actual delivery date.
 
@@ -113,7 +113,7 @@ Only **delivered** orders were kept — cancelled, shipped, or processing orders
 
 ---
 
-## 🔍 Key Findings
+##  Key Findings
 
 ### 1. Overall Delay Rate
 - **96,470 delivered orders** analyzed
@@ -144,7 +144,7 @@ Only **delivered** orders were kept — cancelled, shipped, or processing orders
 
 ---
 
-## 📈 SQL Analysis (7 Queries)
+##  SQL Analysis (7 Queries)
 
 | # | Query | Type |
 |---|---|---|
@@ -158,7 +158,7 @@ Only **delivered** orders were kept — cancelled, shipped, or processing orders
 
 ---
 
-## 📊 Power BI Dashboard (4 Pages)
+##  Power BI Dashboard (4 Pages)
 
 | Page | What It Shows |
 |---|---|
@@ -171,7 +171,7 @@ Only **delivered** orders were kept — cancelled, shipped, or processing orders
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ### Python Pipeline
 ```bash
@@ -197,23 +197,17 @@ Open `analysis_queries.sql` in MySQL Workbench and run queries individually or a
 ### Power BI
 Open `Supply_Chain_Analysis.pbix` in Power BI Desktop. Data is already loaded — no reconnection needed unless you want to refresh from MySQL.
 
-### Environment Variable for DB Password
-Before running `MySQL_Transport_file.py`, set your password as an environment variable:
-```bash
-# Windows
-set DB_PASSWORD=your_mysql_password
+---
+### MySQL Password
+Before running `MySQL_Transport_file.py`, 
+replace `your_password_here` with your 
+actual MySQL password:
 
-# Mac/Linux
-export DB_PASSWORD=your_mysql_password
-```
-Then update the script to use:
-```python
-DB_PASSWORD = os.environ.get("DB_PASSWORD")
-```
+DB_PASSWORD = "your_actual_password"
 
 ---
 
-## 💡 Business Recommendations
+##  Business Recommendations
 
 1. **Prioritize AL, MA, SE logistics partners** — these states have delay rates 2–3× the national average and need immediate vendor review
 2. **Pre-position inventory in October** before festive season demand spike to reduce the Nov–Dec delay surge
@@ -223,15 +217,11 @@ DB_PASSWORD = os.environ.get("DB_PASSWORD")
 
 ---
 
-## 👤 Author
+##  Author
 
-**[Your Name]**
-Aspiring Data Analyst | Python • SQL • Power BI
+**[Priyanka Chaudhary]**
+ Data Analyst | Python • SQL • Power BI
 
 [LinkedIn Profile] | [GitHub Profile]
 
----
 
-## 📄 License
-
-This project uses publicly available data from Kaggle under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
