@@ -26,28 +26,23 @@ This project analyzes delivery delays in a Brazilian e-commerce supply chain usi
 ##  Project Structure
 
 ```
-supply-chain-delay-analysis/
+supply-chain-analysis/
 │
-├── raw data/                        # Original Olist CSV files (not uploaded to GitHub)
+├── python2/
+│   ├── Data_Loading_file.py         # Step 1 — Merge 5 raw files into master
+│   ├── Data_Cleaning_file.py        # Step 2 — Clean data + feature engineering
+│   ├── EDA_file.py                  # Step 3 — Exploratory data analysis + charts
+│   └── MySQL_Transport_file.py      # Step 4 — Load clean CSV into MySQL
 │
-├── output/
-│   ├── master_raw.csv               # Merged raw file before cleaning
-│   └── supply_chain_clean.csv       # Final clean dataset used for analysis
+├── 01_ontime_vs_delayed.png         # Chart 1 — On time vs Delayed orders
+├── 02_state_delay_rate.png          # Chart 2 — Top 10 states by delay rate
+├── 03_festive_vs_normal.png         # Chart 3 — Festive vs Normal season
+├── 04_monthly_trend.png             # Chart 4 — Monthly delay trend
+├── 05_delay_vs_review.png           # Chart 5 — Delay duration vs review score
+├── 06_seller_state_delay.png        # Chart 6 — Seller state delay rate
 │
-├── charts/
-│   ├── 01_ontime_vs_delayed.png
-│   ├── 02_state_delay_rate.png
-│   ├── 03_festive_vs_normal.png
-│   ├── 04_monthly_trend.png
-│   ├── 05_delay_vs_review.png
-│   └── 06_seller_state_delay.png
-│
-├── Data_Loading_file.py             # Step 1 — Merge 5 raw files into master
-├── Data_Cleaning_file.py            # Step 2 — Clean data + feature engineering
-├── EDA_file.py                      # Step 3 — Exploratory data analysis + charts
-├── MySQL_Transport_file.py          # Step 4 — Load clean CSV into MySQL
 ├── analysis_queries.sql             # Step 5 — 7 business SQL queries
-├── Supply_Chain_Analysis.pbix       # Step 6 — Power BI dashboard
+├── Supply_Chain_Analysis.pbix       # Step 6 — Power BI dashboard (4 pages)
 ├── Supply_Chain_Analysis.xlsx       # Step 7 — Excel summary report
 └── README.md
 ```
@@ -88,7 +83,7 @@ Raw CSV Files (5 files)
 | olist_order_reviews_dataset.csv | Review score per order |
 | olist_sellers_dataset.csv | Seller state |
 
-**Why only 5 files?** Only columns relevant to the business question were included. Unused files (products, payments, geolocation, etc.) were excluded to keep the analysis focused.
+> **Why only 5 files?** Only columns relevant to the business question were included. Unused files (products, payments, geolocation, etc.) were excluded to keep the analysis focused.
 
 ---
 
@@ -109,7 +104,7 @@ Only **delivered** orders were kept — cancelled, shipped, or processing orders
 | `estimated_time` | Promised days from purchase to estimated delivery |
 | `penalty_cost` | 10% of order value for delayed orders, 0 for on-time |
 
-> **Note on penalty_cost:** The 10% penalty rate is an assumption used for financial modeling purposes. It is not a contractual figure from the dataset.
+> **Note:** The 10% penalty rate is an assumption used for financial modeling purposes. It is not a contractual figure from the dataset.
 
 ---
 
@@ -167,41 +162,39 @@ Only **delivered** orders were kept — cancelled, shipped, or processing orders
 | **Seasonality Analysis** | Festive vs normal season delay rate and review score |
 | **Financial Impact** | Penalty cost by state, monthly trend by year, scenario modeling with delay reduction slicer |
 
-**Key DAX Feature:** The Financial Impact page includes a **Delay Reduction % slicer** that dynamically recalculates projected savings — allowing operations teams to model the financial benefit of improving delivery performance.
+> **Key DAX Feature:** The Financial Impact page includes a **Delay Reduction % slicer** that dynamically recalculates projected savings — allowing operations teams to model the financial benefit of improving delivery performance.
 
 ---
 
-##  How to Run
+## ▶ How to Run
 
-### Python Pipeline
+### Step 1 — Install Dependencies
 ```bash
-# Install dependencies
 pip install pandas sqlalchemy mysql-connector-python matplotlib seaborn
-
-# Run in order
-python Data_Loading_file.py
-python Data_Cleaning_file.py
-python EDA_file.py
-python MySQL_Transport_file.py
 ```
 
-### MySQL Setup
+### Step 2 — Run Python Pipeline (in order)
+```bash
+python python2/Data_Loading_file.py
+python python2/Data_Cleaning_file.py
+python python2/EDA_file.py
+python python2/MySQL_Transport_file.py
+```
+
+### Step 3 — MySQL Setup
 ```sql
 CREATE DATABASE olist_supply_chain;
 ```
 Then run `MySQL_Transport_file.py` to load the clean CSV into the table.
 
-### SQL Queries
+### Step 4 — SQL Queries
 Open `analysis_queries.sql` in MySQL Workbench and run queries individually or all at once.
 
-### Power BI
+### Step 5 — Power BI
 Open `Supply_Chain_Analysis.pbix` in Power BI Desktop. Data is already loaded — no reconnection needed unless you want to refresh from MySQL.
 
----
 ### MySQL Password
-Before running `MySQL_Transport_file.py`, 
-replace `your_password_here` with your 
-actual MySQL password:
+Before running `MySQL_Transport_file.py`, replace `your_password_here` with your actual MySQL password:
 ```python
 DB_PASSWORD = "your_actual_password"
 ```
@@ -220,9 +213,15 @@ DB_PASSWORD = "your_actual_password"
 
 ##  Author
 
-**[Priyanka Chaudhary]**
- Data Analyst | Python • SQL • Power BI
+**Priyanka Chaudhary**
+Data Analyst | Python • SQL • Power BI
 
-[Linkedin] | [GitHub Profile]
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/priyanka-chaudhary775/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/priyanka-insights)
 
+---
+
+##  License
+
+This project uses publicly available data from Kaggle under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
