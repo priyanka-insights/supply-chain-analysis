@@ -202,8 +202,9 @@ Open `Supply_Chain_Analysis.pbix` in Power BI Desktop. Data is already loaded �
 Before running `MySQL_Transport_file.py`, 
 replace `your_password_here` with your 
 actual MySQL password:
-
+```python
 DB_PASSWORD = "your_actual_password"
+```
 
 ---
 
@@ -222,6 +223,6 @@ DB_PASSWORD = "your_actual_password"
 **[Priyanka Chaudhary]**
  Data Analyst | Python • SQL • Power BI
 
-[LinkedIn Profile] | [GitHub Profile]
+[Linkedin] | [GitHub Profile]
 
 
