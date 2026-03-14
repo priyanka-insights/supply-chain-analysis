@@ -3,13 +3,6 @@
 
 > Analyzed **96,470 orders** across Brazil's largest e-commerce platform · Identified states, sellers & seasons bleeding revenue · Delivered **5 data-backed recommendations** to cut delays by 20%
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/priyanka-chaudhary775/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/priyanka-insights)
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)
-![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow)
-![Excel](https://img.shields.io/badge/Excel-Report-green)
-
 ---
 
 ##  Business Impact — At a Glance
